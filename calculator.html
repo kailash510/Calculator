@@ -1,0 +1,262 @@
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+	body{
+		background-color: white;
+	}
+</style>
+</head>
+<body>
+<form action=" " target="" id="" method="post">
+	<fieldset style="text-align: center;padding-bottom: 190px;padding-top: 190px">
+		<legend>Calculator:</legend>
+		<input type="text" id="main" style="height:52px;width:910px;background-color:lightblue">
+		<br>
+		<br>
+		<br>
+		<button type="button" onclick="cleara()" id="C" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">C</button>
+		<button type="button" onclick="parentheses()" id="()" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">()</button>
+		<button type="button" onclick="modulo()"id="%" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">%</button>
+		<button type="button" onclick="divison()" id="/" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">/</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<button type="button" onclick="seven()" id="7" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">7</button>
+		<button type="button" onclick="eight()" id="8" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">8</button>
+		<button type="button" onclick="nine()" id="9" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">9</button>
+		<button type="button" onclick="multiplication()" id="*" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">*</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<button type="button" onclick="four()" id="4" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">4</button>
+		<button type="button" onclick="five()" id="5" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">5</button>
+		<button type="button" onclick="six()" id="6" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">6</button>
+		<button type="button" onclick="subtraction()" id="-" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">-</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<button type="button" onclick="one()" id="1" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">1</button>
+		<button type="button" onclick="two()" id="2" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">2</button>
+		<button type="button" onclick="three()" id="3" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">3</button>
+		<button type="button" onclick="addition()" id="+" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">+</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<button type="button"  onclick="zero()" id="0" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">0</button>
+		<button type="button" onclick="decimal()" id="." style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">.</button>
+		<button type="button" onclick="equal()" id="=" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px; text-align: center;">=</button>
+		<button type="button" onclick="deletion()" id="->" style="height:50px;width:225px;background-color:#333333;color:white;font-size: 30px;text-align: center;">-></button>
+	</fieldset>
+</form>
+<script>
+	function cleara(){
+		document.getElementById('main').value='';
+	}
+	function parentheses(){
+		var x=document.getElementById('main').value;
+		var ind=x.length-1;
+		if(x.charAt(ind)=='1'||x.charAt(ind)=='2'||x.charAt(ind)=='3'||x.charAt(ind)=='4'||x.charAt(ind)=='5'||x.charAt(ind)=='6'||x.charAt(ind)=='7'||x.charAt(ind)=='8'||x.charAt(ind)=='9'||x.charAt(ind)==')'){
+			document.getElementById('main').value += ")";
+		}
+		else document.getElementById('main').value += "(";
+	}
+	function modulo(){
+		document.getElementById('main').value+="%";
+	}
+	function divison(){
+		document.getElementById('main').value+="/";
+	}
+	function seven(){
+		document.getElementById('main').value+="7";
+	}
+	function eight(){
+		document.getElementById('main').value+="8";
+	}
+	function nine(){
+		document.getElementById('main').value+="9";
+	}
+	function multiplication(){
+		document.getElementById('main').value+="*";
+	}
+	function four(){
+		document.getElementById('main').value+="4";
+	}
+	function five(){
+		document.getElementById('main').value+="5";
+	}
+	function six(){
+		document.getElementById('main').value+="6";
+	}
+	function subtraction(){
+		document.getElementById('main').value+="-";
+	}
+	function one(){
+		document.getElementById('main').value+="1";
+	}
+	function two(){
+		document.getElementById('main').value+="2";
+	}
+	function three(){
+		document.getElementById('main').value+="3";
+	}
+	function addition(){
+		document.getElementById('main').value+="+";
+	}
+	function zero(){
+		document.getElementById('main').value+="0";
+	}
+ 	function decimal(){
+		document.getElementById('main').value+=".";
+	}
+	function equal(){
+		//process string
+		//parse 8*(2+3)
+		var operator=[];
+		var operand=[];
+		//to evaluate the string we have two stacks operator and operand so we execute a process three time first when we have a ')'
+		//or we have an higher precedence operator on top of stack
+		var x=document.getElementById('main').value;
+		var size=x.length;
+		var i;
+		for(i=0;i<size;i++){
+			if(x.charAt(i)=='1'||x.charAt(i)=='2'||x.charAt(i)=='3'||x.charAt(i)=='4'||x.charAt(i)=='5'||x.charAt(i)=='6'||x.charAt(i)=='7'||x.charAt(i)=='8'||x.charAt(i)=='9'){
+					operand.push(x.charAt(i));
+			}
+			if(x.charAt(i)=='('){
+					operator.push(x.charAt(i));
+			}
+			while((x.charAt(i)=='%'||x.charAt(i)=='/'||x.charAt(i)=='*'||x.charAt(i)=='-'||x.charAt(i)=='+')){
+				if(operator.length==0){
+					operator.push(x.charAt(i));
+				}
+				else if(x.charAt(i)=='%'&&(operator[operator.length-1]=='/'||operator[operator.length-1]=='*'||operator[operator.length-1]=='-'||operator[operator.length-1]=='+'||operator[operator.length-1]=='%'||operator[operator.length-1]=='(')){
+					// no process
+						operator.push(x.charAt(i));
+						break;
+				}
+				else if((x.charAt(i)=='/'||x.charAt(i)=='*')&&(operator[operator.length-1]=='+'||operator[operator.length-1]=='-'||operator[operator.length-1]=='/'||operator[operator.length-1]=='*'||operator[operator.length-1]=='(')){
+					// no process
+					operator.push(x.charAt(i));
+					break;
+				}
+				else if((x.charAt(i)=='+'||x.charAt(i)=='-')&&(operator[operator.length-1]=='+'||operator[operator.length-1]=='-'||operator[operator.length-1]=='(')){
+					operator.push(x.charAt(i));
+					break;
+				}
+				else{
+					 var a=operand.pop();
+					 var b=operand.pop();
+					 var c=operator.pop();
+					 a=parseInt(a);
+					 b=parseInt(b);
+					 var result;
+					 if(c=='+'){
+					 	result=a+b;
+					 	result.toString();
+					 }
+					 else if(c=='-'){
+					 	result=b-a;
+					 	result.toString();
+					 }
+					 else if(c=='*'){
+					 	result=a*b;
+					 	result.toString();
+					 }
+					 else if(c=='%'){
+					 	result=b%a;
+					 	result.toString();
+					 }
+					 else if(c=='/'){
+					 	result=b/a;
+					 	result.toString();
+					 }
+					 operand.push(result);
+				}
+			}
+			if(x.charAt(i)==')'){
+				while(operator.length>=1&&operator[operator.length-1]!='('){
+					 var a=operand.pop();
+					 var b=operand.pop();
+					 var c=operator.pop();
+					 a=parseInt(a);
+					 b=parseInt(b);
+					 var result;
+					  if(c=='+'){
+					 	result=a+b;
+					 	result.toString();
+					 }
+					 else if(c=='-'){
+					 	result=b-a;
+					 	result.toString();
+					 }
+					 else if(c=='*'){
+					 	result=a*b;
+					 	result.toString();
+					 }
+					 else if(c=='%'){
+					 	result=b%a;
+					 	result.toString();
+					 }
+					 else if(c=='/'){
+					 	result=b/a;
+					 	result.toString();
+					 }
+					 if(operand[operand.length-1]=='('){
+					 	operand.pop();
+					 	operand.push(result);
+					 	break;
+					 }
+					 operand.push(result);
+				}
+				operator.pop();
+			}
+		}
+		while(operand.length!=1&&operand.length!=0){
+			 		 var a=operand.pop();
+					 var b=operand.pop();
+					 var c=operator.pop();
+					 var result;//
+					 a=parseInt(a);
+					 b=parseInt(b);
+					  if(c=='+'){
+					 	result=(a)+(b);
+					 	result.toString();
+					 }
+					 else if(c=='-'){
+					 	result=b-a;
+					 	result.toString();
+					 }
+					 else if(c=='*'){
+					 	result=a*b;
+					 	result.toString();
+					 }
+					 else if(c=='%'){
+					 	result=b%a;
+					 	result.toString();
+					 }
+					 else if(c=='/'){
+					 	result=b/a;
+					 	result.toString();
+					 }
+					  operand.push(result);
+		}
+		document.getElementById('main').value=operand.pop();
+	}
+	function deletion(){
+		var x=document.getElementById('main').value;
+		var ind=x.length-2;
+		var y='';
+		var i;
+		for(i=0;i<=ind;i++){
+			y=y+x.charAt(i);
+		}
+		document.getElementById('main').value=y;
+	}
+</script>
+</body>
+</html>
