@@ -58,6 +58,7 @@
 		document.getElementById('main').value='';
 	}
 	function parentheses(){
+		//so firstly you need to store all data into an array 
 		var x=document.getElementById('main').value;
 		var ind=x.length-1;
 		if(x.charAt(ind)=='1'||x.charAt(ind)=='2'||x.charAt(ind)=='3'||x.charAt(ind)=='4'||x.charAt(ind)=='5'||x.charAt(ind)=='6'||x.charAt(ind)=='7'||x.charAt(ind)=='8'||x.charAt(ind)=='9'||x.charAt(ind)==')'){
@@ -120,40 +121,58 @@
 		var operand=[];
 		//to evaluate the string we have two stacks operator and operand so we execute a process three time first when we have a ')'
 		//or we have an higher precedence operator on top of stack
-		var x=document.getElementById('main').value;
+		var y=document.getElementById('main').value;
+		var x=[];
+		var ind=y.length-1;
+		var i;
+		for(i=0;i<=ind;i++){
+			var temp='';
+			while(i<=ind&&(y.charAt(i)=='.'||y.charAt(i)=='1'||y.charAt(i)=='2'||y.charAt(i)=='3'||y.charAt(i)=='4'||y.charAt(i)=='5'||y.charAt(i)=='6'
+				||y.charAt(i)=='7'||y.charAt(i)=='8'||y.charAt(i)=='9'||y.charAt(i)=='0')){
+				temp=temp+y.charAt(i);
+				i++;
+			}
+			if(temp==''){
+				temp=temp+y.charAt(i);
+			}
+			else i--;
+			x.push(temp);
+		}
 		var size=x.length;
 		var i;
 		for(i=0;i<size;i++){
-			if(x.charAt(i)=='1'||x.charAt(i)=='2'||x.charAt(i)=='3'||x.charAt(i)=='4'||x.charAt(i)=='5'||x.charAt(i)=='6'||x.charAt(i)=='7'||x.charAt(i)=='8'||x.charAt(i)=='9'){
-					operand.push(x.charAt(i));
+			if(x[i]!='('&&x[i]!=')'&&x[i]!='/'&&x[i]!='*'&&x[i]!='+'&&x[i]!='-'&&x[i]!='%'){
+					operand.push(x[i]);
 			}
-			if(x.charAt(i)=='('){
-					operator.push(x.charAt(i));
+			if(x[i]=='('){
+					operator.push(x[i]);
 			}
-			while((x.charAt(i)=='%'||x.charAt(i)=='/'||x.charAt(i)=='*'||x.charAt(i)=='-'||x.charAt(i)=='+')){
+			while((x[i]=='%'||x[i]=='/'||x[i]=='*'||x[i]=='-'||x[i]=='+')){
 				if(operator.length==0){
-					operator.push(x.charAt(i));
-				}
-				else if(x.charAt(i)=='%'&&(operator[operator.length-1]=='/'||operator[operator.length-1]=='*'||operator[operator.length-1]=='-'||operator[operator.length-1]=='+'||operator[operator.length-1]=='%'||operator[operator.length-1]=='(')){
-					// no process
-						operator.push(x.charAt(i));
-						break;
-				}
-				else if((x.charAt(i)=='/'||x.charAt(i)=='*')&&(operator[operator.length-1]=='+'||operator[operator.length-1]=='-'||operator[operator.length-1]=='/'||operator[operator.length-1]=='*'||operator[operator.length-1]=='(')){
-					// no process
-					operator.push(x.charAt(i));
+					operator.push(x[i]);
 					break;
 				}
-				else if((x.charAt(i)=='+'||x.charAt(i)=='-')&&(operator[operator.length-1]=='+'||operator[operator.length-1]=='-'||operator[operator.length-1]=='(')){
-					operator.push(x.charAt(i));
+				else if(x[i]=='%'&&(operator[operator.length-1]=='/'||operator[operator.length-1]=='*'||operator[operator.length-1]=='-'||operator[operator.length-1]=='+'||operator[operator.length-1]=='%'||operator[operator.length-1]=='(')){
+					// no process
+						operator.push(x[i]);
+						break;
+				}
+				else if((x[i]=='/'||x[i]=='*')&&(operator[operator.length-1]=='+'||operator[operator.length-1]=='-'||operator[operator.length-1]=='/'||operator[operator.length-1]=='*'||operator[operator.length-1]=='(')){
+					// no process
+					operator.push(x[i]);
+					break;
+				}
+				else if((x[i]=='+'||x[i]=='-')&&(operator[operator.length-1]=='+'||operator[operator.length-1]=='-'||operator[operator.length-1]=='(')){
+					operator.push(x[i]);
 					break;
 				}
 				else{
+					 var k;
 					 var a=operand.pop();
 					 var b=operand.pop();
 					 var c=operator.pop();
-					 a=parseInt(a);
-					 b=parseInt(b);
+					 a=parseFloat(a);
+					 b=parseFloat(b);
 					 var result;
 					 if(c=='+'){
 					 	result=a+b;
@@ -178,13 +197,13 @@
 					 operand.push(result);
 				}
 			}
-			if(x.charAt(i)==')'){
+			if(x[i]==')'){
 				while(operator.length>=1&&operator[operator.length-1]!='('){
 					 var a=operand.pop();
 					 var b=operand.pop();
 					 var c=operator.pop();
-					 a=parseInt(a);
-					 b=parseInt(b);
+					 a=parseFloat(a);
+					 b=parseFloat(b);
 					 var result;
 					  if(c=='+'){
 					 	result=a+b;
@@ -221,8 +240,8 @@
 					 var b=operand.pop();
 					 var c=operator.pop();
 					 var result;//
-					 a=parseInt(a);
-					 b=parseInt(b);
+					 a=parseFloat(a);
+					 b=parseFloat(b);
 					  if(c=='+'){
 					 	result=(a)+(b);
 					 	result.toString();
